@@ -118,46 +118,46 @@ const BuddyCard = ({ buddyList, currentUser }: { buddyList: ExtendedBuddy[]; cur
                   </div>
                   <Card.Body className="cardBtnDiv">
                     {(() => {
-                     if (buddy.userDupe.id === currentUser) {
-                       return (
+                      if (buddy.userDupe.id === currentUser) {
+                        return (
+                          <Button
+                            className="requestBtn"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                           }}
+                          >
+                           Edit Profile
+                          </Button>
+                        );
+                      }
+
+                      const isBuddyInMyBuddies = buddyList.some((b) => b.id === buddy.id);
+
+                      if (isBuddyInMyBuddies) {
+                        return (
                          <Button
-                           className="requestBtn"
+                           className="removeBtn"
                            onClick={(e) => {
                              e.stopPropagation();
-                          }}
+                             removeBuddyBtn(buddy);
+                           }}
                          >
-                           Edit Profile
+                           Remove
                          </Button>
-                       );
-                    }
-
-                     const isBuddyInMyBuddies = buddyList.some((b) => b.id === buddy.id);
-
-                     if (isBuddyInMyBuddies) {
-                       return (
+                        );
+                      }
+                      return (
                         <Button
-                          className="removeBtn"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            removeBuddyBtn(buddy);
-                          }}
-                        >
-                          Remove
-                        </Button>
+                         className="requestBtn"
+                         onClick={(e) => {
+                           e.stopPropagation();
+                           addBuddyBtn(buddy);
+                         }}
+                       >
+                         Favorite
+                       </Button>
                       );
-                    }
-                     return (
-                       <Button
-                        className="requestBtn"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          addBuddyBtn(buddy);
-                        }}
-                      >
-                        Favorite
-                      </Button>
-                     );
-                   })()}
+                    })()}
                   </Card.Body>
                 </Card.Body>
               </Card>
