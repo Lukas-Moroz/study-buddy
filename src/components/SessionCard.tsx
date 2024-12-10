@@ -221,7 +221,7 @@ const SessionCard = ({
                   <Col>
                     <Row>
                       <p className="nonOverflow">
-                        <strong>Description:</strong>
+                        <strong>Description: </strong>
                         {selectedSession.description}
                       </p>
                     </Row>
