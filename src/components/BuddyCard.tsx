@@ -8,7 +8,6 @@ import swal from 'sweetalert';
 import { Card, Button, Image, Badge } from 'react-bootstrap';
 import SearchBuddies from './SearchBuddies';
 import '../styles/buddyCard.style.css';
-import SessionBuddyCard from './SessionBuddyCard';
 
 type ExtendedBuddy = Buddy & {
   userDupe: {
@@ -118,24 +117,24 @@ const BuddyCard = ({ buddyList, currentUser }: { buddyList: ExtendedBuddy[]; cur
                     </p>
                   </div>
                   <Card.Body className="cardBtnDiv">
-                   {(() => {
-                    if (buddy.userDupe.id === currentUser) {
-                      return (
-                        <Button
-                          className="requestBtn"
-                          onClick={(e) => {
-                            e.stopPropagation();
+                    {(() => {
+                     if (buddy.userDupe.id === currentUser) {
+                       return (
+                         <Button
+                           className="requestBtn"
+                           onClick={(e) => {
+                             e.stopPropagation();
                           }}
-                        >
-                          Edit Profile
-                        </Button>
-                      );
+                         >
+                           Edit Profile
+                         </Button>
+                       );
                     }
 
-                    const isBuddyInMyBuddies = buddyList.some((b) => b.id === buddy.id);
+                     const isBuddyInMyBuddies = buddyList.some((b) => b.id === buddy.id);
 
-                    if (isBuddyInMyBuddies) {
-                      return (
+                     if (isBuddyInMyBuddies) {
+                       return (
                         <Button
                           className="removeBtn"
                           onClick={(e) => {
@@ -147,8 +146,8 @@ const BuddyCard = ({ buddyList, currentUser }: { buddyList: ExtendedBuddy[]; cur
                         </Button>
                       );
                     }
-                    return (
-                      <Button
+                     return (
+                       <Button
                         className="requestBtn"
                         onClick={(e) => {
                           e.stopPropagation();
@@ -157,9 +156,9 @@ const BuddyCard = ({ buddyList, currentUser }: { buddyList: ExtendedBuddy[]; cur
                       >
                         Favorite
                       </Button>
-                    );
-                  })()}
-                 </Card.Body>
+                     );
+                   })()}
+                  </Card.Body>
                 </Card.Body>
               </Card>
             </div>
