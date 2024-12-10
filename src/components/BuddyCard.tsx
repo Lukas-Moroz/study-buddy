@@ -125,9 +125,9 @@ const BuddyCard = ({ buddyList, currentUser }: { buddyList: ExtendedBuddy[]; cur
                             onClick={(e) => {
                               e.stopPropagation();
                             }}
-                           >
+                          >
                             Edit Profile
-                           </Button>
+                          </Button>
                         );
                       }
 
@@ -135,15 +135,15 @@ const BuddyCard = ({ buddyList, currentUser }: { buddyList: ExtendedBuddy[]; cur
 
                       if (isBuddyInMyBuddies) {
                         return (
-                         <Button
-                           className="removeBtn"
-                           onClick={(e) => {
-                             e.stopPropagation();
-                             removeBuddyBtn(buddy);
-                           }}
-                         >
-                           Remove
-                         </Button>
+                          <Button
+                            className="removeBtn"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              removeBuddyBtn(buddy);
+                            }}
+                          >
+                            Remove
+                          </Button>
                         );
                       }
                       return (
