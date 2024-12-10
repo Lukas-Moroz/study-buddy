@@ -8,6 +8,7 @@ import swal from 'sweetalert';
 import { Card, Button, Image, Badge } from 'react-bootstrap';
 import SearchBuddies from './SearchBuddies';
 import '../styles/buddyCard.style.css';
+import SessionBuddyCard from './SessionBuddyCard';
 
 type ExtendedBuddy = Buddy & {
   userDupe: {
@@ -116,12 +117,8 @@ const BuddyCard = ({ buddyList, currentUser }: { buddyList: ExtendedBuddy[]; cur
                       {buddy.userDupe.profile?.social ?? 'No Social'}
                     </p>
                   </div>
-
-
-
-
-                 <Card.Body className="cardBtnDiv">
-                  {(() => {
+                  <Card.Body className="cardBtnDiv">
+                   {(() => {
                     if (buddy.userDupe.id === currentUser) {
                       return (
                         <Button
@@ -143,7 +140,7 @@ const BuddyCard = ({ buddyList, currentUser }: { buddyList: ExtendedBuddy[]; cur
                           className="removeBtn"
                           onClick={(e) => {
                             e.stopPropagation();
-                            removeBuddy(buddy.id, currentUser);
+                            removeBuddyBtn(buddy);
                           }}
                         >
                           Remove
@@ -155,19 +152,14 @@ const BuddyCard = ({ buddyList, currentUser }: { buddyList: ExtendedBuddy[]; cur
                         className="requestBtn"
                         onClick={(e) => {
                           e.stopPropagation();
-                          addBuddy(buddy.id, currentUser);
+                          addBuddyBtn(buddy);
                         }}
                       >
                         Favorite
                       </Button>
                     );
                   })()}
-                </Card.Body>
-
-
-
-
-
+                 </Card.Body>
                 </Card.Body>
               </Card>
             </div>
