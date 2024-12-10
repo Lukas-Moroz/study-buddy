@@ -124,10 +124,10 @@ const BuddyCard = ({ buddyList, currentUser }: { buddyList: ExtendedBuddy[]; cur
                             className="requestBtn"
                             onClick={(e) => {
                               e.stopPropagation();
-                           }}
-                          >
-                           Edit Profile
-                          </Button>
+                            }}
+                           >
+                            Edit Profile
+                           </Button>
                         );
                       }
 
@@ -148,14 +148,14 @@ const BuddyCard = ({ buddyList, currentUser }: { buddyList: ExtendedBuddy[]; cur
                       }
                       return (
                         <Button
-                         className="requestBtn"
-                         onClick={(e) => {
-                           e.stopPropagation();
-                           addBuddyBtn(buddy);
-                         }}
-                       >
-                         Favorite
-                       </Button>
+                          className="requestBtn"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            addBuddyBtn(buddy);
+                          }}
+                        >
+                          Favorite
+                        </Button>
                       );
                     })()}
                   </Card.Body>
